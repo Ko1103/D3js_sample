@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>D3 js sample</title>
+</head>
+<body>
+    <!-- <div class="bar"></div> -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    var dataset = [];
+    for (var i = 0; i< 25; i++) {
+        var newNumber = Math.floor(Math.random() * 30); // 0 ~ 30
+        dataset.push(newNumber);
+    }
+
+    d3.select("body").selectAll("div")
+        .data(dataset)
+        .enter()
+        .append("div")
+        .attr("class", "bar")
+        .style("height", function(d) {
+            var barHeight = d * 5;
+            return barHeight + "px";
+        });
+    </script>
+</body>
+</html>
